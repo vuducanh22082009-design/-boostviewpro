@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoostViewPro | Dịch Vụ Tăng View Chuyên Nghiệp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #8a2be2;
+            --secondary-color: #5a189a;
+            --accent-color: #ff6b6b;
+            --accent-color-2: #00ff9d;
+            --dark-bg: #0f0f23;
+            --darker-bg: #0a0a18;
+            --card-bg: #1a1a2e;
+            --text-color: #e0e0ff;
+            --text-muted: #a0a0c0;
+            --success-color: #00ff9d;
+            --gradient: linear-gradient(135deg, #8a2be2, #5a189a, #3c096c);
+            --gradient-accent: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            --transition: all 0.4s ease;
+            --border-radius: 10px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(90, 24, 154, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(138, 43, 226, 0.1) 0%, transparent 20%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(15, 15, 35, 0.95);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo i {
+            color: var(--accent-color);
+        }
+        
+        .logo span {
+            background: linear-gradient(90deg, #8a2be2, #ff6b6b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .user-avatar:hover {
+            transform: scale(1.1);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-login, .btn-register {
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+        
+        .btn-login {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--text-color);
+        }
+        
+        .btn-register {
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .btn-login:hover, .btn-register:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 150px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #8a2be2, #ff6b6b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero-subtitle {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--accent-color-2);
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--text-muted);
+        }
+        
+        /* Thống kê uy tín */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 60px auto 40px;
+            max-width: 1000px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-color-2);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.6);
+            background: linear-gradient(135deg, #9a3be6, #6a1daa);
+        }
+        
+        /* Platforms Section */
+        .platforms {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* Platform Tabs */
+        .platform-tabs-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .platform-tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 140px;
+            height: 140px;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .platform-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .platform-tab:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .platform-tab:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--primary-color);
+        }
+        
+        .platform-tab.active {
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .platform-tab.active::before {
+            transform: scaleX(1);
+        }
+        
+        .platform-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .platform-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        /* Màu sắc cho từng nền tảng */
+        .fb-bg { background: linear-gradient(135deg, rgba(24, 119, 242, 0.1), rgba(24, 119, 242, 0.05)); }
+        .fb-icon { color: #1877F2; }
+        .fb-tab.active { border-color: #1877F2; }
+        
+        .tw-bg { background: linear-gradient(135deg, rgba(29, 161, 242, 0.1), rgba(29, 161, 242, 0.05)); }
+        .tw-icon { color: #1DA1F2; }
+        .tw-tab.active { border-color: #1DA1F2; }
+        
+        .yt-bg { background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(255, 0, 0, 0.05)); }
+        .yt-icon { color: #FF0000; }
+        .yt-tab.active { border-color: #FF0000; }
+        
+        .twitch-bg { background: linear-gradient(135deg, rgba(145, 70, 255, 0.1), rgba(145, 70, 255, 0.05)); }
+        .twitch-icon { color: #9146FF; }
+        .twitch-tab.active { border-color: #9146FF; }
+        
+        .ig-bg { background: linear-gradient(135deg, rgba(225, 48, 108, 0.1), rgba(225, 48, 108, 0.05)); }
+        .ig-icon { color: #E1306C; }
+        .ig-tab.active { border-color: #E1306C; }
+        
+        .tk-bg { background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05)); }
+        .tk-icon { color: #000000; }
+        .tk-tab.active { border-color: #000000; }
+        
+        /* Service Type Tabs */
+        .service-type-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .service-type-tab {
+            padding: 12px 30px;
+            background: var(--card-bg);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .service-type-tab:hover {
+            background: rgba(138, 43, 226, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .service-type-tab.active {
+            background: var(--gradient);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        /* Packages Grid */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .package-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--primary-color);
+        }
+        
+        .package-card.featured {
+            border: 2px solid var(--accent-color);
+        }
+        
+        .package-card.vip {
+            border: 2px solid var(--accent-color-2);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 30px;
+            font-weight: 700;
+            transform: rotate(45deg);
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+        
+        .package-badge.vip {
+            background: var(--accent-color-2);
+        }
+        
+        .package-header {
+            background: rgba(138, 43, 226, 0.1);
+            padding: 25px;
+            text-align: center;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+        }
+        
+        .package-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: var(--success-color);
+        }
+        
+        .package-price span {
+            font-size: 1rem;
+            font-weight: normal;
+            opacity: 0.9;
+        }
+        
+        .package-body {
+            padding: 30px;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .package-features li {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(138, 43, 226, 0.2);
+            display: flex;
+            align-items: center;
+        }
+        
+        .package-features li i {
+            color: var(--success-color);
+            margin-right: 10px;
+        }
+        
+        .package-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: var(--gradient);
+            color: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .package-button:hover:not(:disabled) {
+            background: linear-gradient(135deg, #9a3be6, #6a1daa);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+        }
+        
+        .package-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Single Services Grid */
+        .single-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .single-service-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            transition: var(--transition);
+        }
+        
+        .single-service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
+        }
+        
+        .service-type {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .service-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--success-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-price span {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .service-button {
+            display: block;
+            width: 100%;
+            background: var(--gradient);
+            color: white;
+            padding: 12px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .service-button:hover:not(:disabled) {
+            background: linear-gradient(135deg, #9a3be6, #6a1daa);
+            transform: translateY(-2px);
+        }
+        
+        .service-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 10, 24, 0.98);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .modal-content {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 450px; /* Giảm chiều rộng tối đa */
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(138, 43, 226, 0.5);
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            cursor: pointer;
+            transition: var(--transition);
+            background: rgba(0, 0, 0, 0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-modal:hover {
+            color: white;
+            background: var(--accent-color);
+            transform: rotate(90deg);
+        }
+        
+        /* Payment Details */
+        .payment-details {
+            background: rgba(10, 10, 24, 0.7);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+        }
+        
+        .payment-details p {
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed rgba(138, 43, 226, 0.2);
+        }
+        
+        .payment-details p:last-child {
+            border-bottom: none;
+        }
+        
+        .payment-details strong {
+            color: var(--accent-color);
+            min-width: 180px;
+        }
+        
+        .payment-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: space-between;
+        }
+        
+        .payment-btn {
+            flex: 1;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .payment-btn.cancel {
+            background: rgba(255, 107, 107, 0.1);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+        
+        .payment-btn.confirm {
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .payment-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* QR Code Container */
+        .qr-container {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            max-width: 320px; /* Tăng kích thước tối đa */
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .qr-code {
+            width: 100%;
+            max-width: 280px; /* Tăng kích thước ảnh QR */
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(10, 10, 24, 0.5);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: var(--border-radius);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.2);
+        }
+        
+        .auth-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+        
+        .auth-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.4);
+        }
+        
+        /* Auth Tabs */
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+        }
+        
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        
+        .auth-tab.active {
+            color: var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
+        }
+        
+        .auth-form {
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+        }
+        
+        /* Hướng dẫn Section */
+        .guide-section {
+            padding: 80px 0;
+            background-color: rgba(10, 10, 24, 0.5);
+        }
+        
+        .guide-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .guide-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+        
+        .guide-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .guide-card h3 i {
+            color: var(--accent-color-2);
+        }
+        
+        .guide-steps {
+            list-style: none;
+        }
+        
+        .guide-steps li {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(138, 43, 226, 0.2);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .guide-steps li:last-child {
+            border-bottom: none;
+        }
+        
+        .step-number {
+            background: var(--gradient);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--darker-bg);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(138, 43, 226, 0.2);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .footer-about p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h3, .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3::after, .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info li i {
+            margin-right: 15px;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: rgba(15, 15, 35, 0.98);
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.6rem;
+            }
+            
+            .platform-tab {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .platform-icon {
+                font-size: 2rem;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .single-services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-details p {
+                flex-direction: column;
+            }
+            
+            .payment-details strong {
+                min-width: auto;
+                margin-bottom: 5px;
+            }
+            
+            .payment-buttons {
+                flex-direction: column;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+                max-width: 95%;
+            }
+            
+            .qr-container {
+                max-width: 280px;
+                padding: 15px;
+            }
+            
+            .qr-code {
+                max-width: 250px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .platform-tab {
+                width: 85px;
+                height: 85px;
+            }
+            
+            .platform-icon {
+                font-size: 1.5rem;
+            }
+            
+            .platform-name {
+                font-size: 0.9rem;
+            }
+            
+            .qr-container {
+                max-width: 250px;
+            }
+            
+            .qr-code {
+                max-width: 220px;
+            }
+            
+            .payment-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span>BoostViewPro</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Trang Chủ</a></li>
+                    <li><a href="#platforms">Dịch Vụ</a></li>
+                    <li><a href="#guide">Hướng Dẫn</a></li>
+                    <li><a href="#contact">Liên Hệ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="user-info" id="userInfo">
+                <div class="auth-buttons" id="authButtons">
+                    <button class="btn-login" id="showLogin">Đăng Nhập</button>
+                    <button class="btn-register" id="showRegister">Đăng Ký</button>
+                </div>
+                
+                <div id="loggedInUser" style="display: none;">
+                    <div class="user-avatar" id="userAvatar">
+                        <span id="avatarText">A</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 class="animate__animated animate__fadeInDown">BoostViewPro</h1>
+            <div class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">DỊCH VỤ TĂNG VIEW CHUYÊN NGHIỆP</div>
+            <p class="animate__animated animate__fadeInUp animate__delay-1s">Dịch vụ tăng view, like, follow chất lượng cao, an toàn, hiệu quả. Hơn 10,000+ khách hàng tin tưởng</p>
+            
+            <div class="stats-container animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="stat-item">
+                    <span class="stat-number">1.5M+</span>
+                    <span class="stat-label">VIEW ĐÃ BUFF</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">KHÁCH HÀNG</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">99.8%</span>
+                    <span class="stat-label">THÀNH CÔNG</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">HỖ TRỢ</span>
+                </div>
+            </div>
+            
+            <a href="#platforms" class="cta-button animate__animated animate__pulse animate__delay-3s">XEM DỊCH VỤ NGAY</a>
+        </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <section class="platforms" id="platforms">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dịch Vụ Theo Nền Tảng</h2>
+                <p>Chọn nền tảng bạn muốn tăng tương tác và xem các gói dịch vụ phù hợp</p>
+            </div>
+            
+            <div class="platform-tabs-container" id="platformTabsContainer">
+                <!-- Platform tabs will be added by JavaScript -->
+            </div>
+            
+            <div class="service-type-tabs" id="serviceTypeTabs">
+                <div class="service-type-tab active" data-type="combo">Gói Combo</div>
+                <div class="service-type-tab" data-type="single">Dịch Vụ Đơn Lẻ</div>
+            </div>
+            
+            <div id="platformContentContainer">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Hướng dẫn Section -->
+    <section class="guide-section" id="guide">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hướng Dẫn Sử Dụng</h2>
+                <p>Làm theo các bước đơn giản để sử dụng dịch vụ một cách hiệu quả</p>
+            </div>
+            
+            <div class="guide-container">
+                <div class="guide-card">
+                    <h3><i class="fas fa-shopping-cart"></i> Hướng Dẫn Mua Gói</h3>
+                    <ul class="guide-steps">
+                        <li>
+                            <div class="step-number">1</div>
+                            <div>Chọn nền tảng bạn muốn tăng tương tác</div>
+                        </li>
+                        <li>
+                            <div class="step-number">2</div>
+                            <div>Chọn loại dịch vụ (gói combo hoặc đơn lẻ)</div>
+                        </li>
+                        <li>
+                            <div class="step-number">3</div>
+                            <div>Nhấn "Mua Ngay" để mở cửa sổ thanh toán</div>
+                        </li>
+                        <li>
+                            <div class="step-number">4</div>
+                            <div>Quét mã QR và chuyển khoản qua ZaloPay</div>
+                        </li>
+                        <li>
+                            <div class="step-number">5</div>
+                            <div>Gửi xác nhận thanh toán và link bài viết/video đến email</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <h3><i class="fas fa-question-circle"></i> Câu Hỏi Thường Gặp</h3>
+                    <ul class="guide-steps">
+                        <li>
+                            <div class="step-number">Q</div>
+                            <div><strong>Tôi có thể hủy gói dịch vụ không?</strong><br>Có, bạn có thể hủy trong vòng 1 giờ sau khi mua</div>
+                        </li>
+                        <li>
+                            <div class="step-number">Q</div>
+                            <div><strong>Thời gian xử lý là bao lâu?</strong><br>Thường từ 5-30 phút sau khi thanh toán thành công</div>
+                        </li>
+                        <li>
+                            <div class="step-number">Q</div>
+                            <div><strong>Có bảo hành dịch vụ không?</strong><br>Có, tất cả gói đều có bảo hành từ 30-120 ngày</div>
+                        </li>
+                        <li>
+                            <div class="step-number">Q</div>
+                            <div><strong>Làm sao để liên hệ hỗ trợ?</strong><br>Liên hệ qua email hoặc hotline 0915779767</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <h3><i class="fas fa-money-bill-wave"></i> Hướng Dẫn Thanh Toán</h3>
+                    <ul class="guide-steps">
+                        <li>
+                            <div class="step-number">1</div>
+                            <div>Mở ứng dụng ZaloPay trên điện thoại</div>
+                        </li>
+                        <li>
+                            <div class="step-number">2</div>
+                            <div>Chọn chức năng "Quét mã QR"</div>
+                        </li>
+                        <li>
+                            <div class="step-number">3</div>
+                            <div>Quét mã QR hiển thị trên website</div>
+                        </li>
+                        <li>
+                            <div class="step-number">4</div>
+                            <div>Xác nhận số tiền và hoàn tất thanh toán</div>
+                        </li>
+                        <li>
+                            <div class="step-number">5</div>
+                            <div>Chụp màn hình xác nhận và gửi đến email hỗ trợ</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">BoostViewPro</a>
+                    <p>Dịch vụ tăng view, like, follow chuyên nghiệp trên đa nền tảng. Cam kết chất lượng, uy tín và hiệu quả cho khách hàng.</p>
+                    <div class="social-icons" style="display: flex; gap: 15px; margin-top: 20px;">
+                        <a href="#" style="color: var(--text-color); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: var(--text-color); font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                        <a href="#" style="color: var(--text-color); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--text-color); font-size: 1.5rem;"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Liên Kết Nhanh</h3>
+                    <ul>
+                        <li><a href="#home">Trang Chủ</a></li>
+                        <li><a href="#platforms">Dịch Vụ</a></li>
+                        <li><a href="#guide">Hướng Dẫn</a></li>
+                        <li><a href="#contact">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Thông Tin Liên Hệ</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email:</strong>
+                                <div>vuducanh22082009@gmail.com</div>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Hotline:</strong>
+                                <div>0915.779.767</div>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Thời gian làm việc:</strong>
+                                <div>24/7 - Kể cả ngày lễ</div>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Địa chỉ:</strong>
+                                <div>Hà Nội, Việt Nam</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 BoostViewPro. Tất cả các quyền được bảo lưu.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeAuth">&times;</span>
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Đăng Nhập</div>
+                <div class="auth-tab" data-tab="register">Đăng Ký</div>
+            </div>
+            
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <label for="loginUsername">Tên đăng nhập</label>
+                    <input type="text" id="loginUsername" placeholder="Nhập tên đăng nhập" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Mật khẩu</label>
+                    <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" required>
+                </div>
+                <button type="submit" class="auth-btn">Đăng Nhập</button>
+            </form>
+            
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="regUsername">Tên đăng nhập</label>
+                    <input type="text" id="regUsername" placeholder="Nhập tên đăng nhập" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" placeholder="Nhập email" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Mật khẩu</label>
+                    <input type="password" id="regPassword" placeholder="Nhập mật khẩu" required>
+                </div>
+                <div class="form-group">
+                    <label for="regConfirmPassword">Xác nhận mật khẩu</label>
+                    <input type="password" id="regConfirmPassword" placeholder="Nhập lại mật khẩu" required>
+                </div>
+                <button type="submit" class="auth-btn">Đăng Ký</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closePayment">&times;</span>
+            <h2 id="paymentTitle">Thanh Toán Dịch Vụ</h2>
+            <p id="paymentDescription" style="color: var(--text-muted); margin-bottom: 20px;">Vui lòng quét mã QR để chuyển khoản qua ZaloPay</p>
+            
+            <div class="qr-container">
+                <img src="image.png" alt="QR Code thanh toán" class="qr-code">
+                <p style="color: #666; font-size: 0.9rem; margin-top: 10px;">Quét mã QR bằng ZaloPay để thanh toán</p>
+            </div>
+            
+            <div class="payment-details">
+                <p><strong>Dịch vụ:</strong> <span id="paymentPackageName">Facebook VIP</span></p>
+                <p><strong>Số tiền:</strong> <span id="paymentAmount">2.999.000đ</span></p>
+                <p><strong>Nội dung chuyển khoản:</strong> <span id="paymentContent">VIP-FB-12345</span></p>
+                <p><strong>Chủ tài khoản:</strong> VŨ ĐỨC ANH</p>
+                <p><strong>Ngân hàng:</strong> ZaloPay</p>
+            </div>
+            
+            <div class="payment-buttons">
+                <button class="payment-btn cancel" id="cancelPayment">Hủy</button>
+                <button class="payment-btn confirm" id="confirmPayment">Xác Nhận Đã Giao Dịch</button>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 0.85rem; color: var(--text-muted); text-align: center;">
+                <strong>Lưu ý:</strong> Sau khi chuyển khoản, vui lòng gửi xác nhận và link bài viết/video đến email: 
+                <a href="mailto:vuducanh22082009@gmail.com" style="color: var(--accent-color);">vuducanh22082009@gmail.com</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Dữ liệu nền tảng
+        const platforms = [
+            { id: 'facebook', name: 'Facebook', icon: 'fab fa-facebook-f', color: 'fb' },
+            { id: 'twitter', name: 'Twitter', icon: 'fab fa-twitter', color: 'tw' },
+            { id: 'youtube', name: 'YouTube', icon: 'fab fa-youtube', color: 'yt' },
+            { id: 'twitch', name: 'Twitch', icon: 'fab fa-twitch', color: 'twitch' },
+            { id: 'instagram', name: 'Instagram', icon: 'fab fa-instagram', color: 'ig' },
+            { id: 'tiktok', name: 'TikTok', icon: 'fab fa-tiktok', color: 'tk' }
+        ];
+
+        // Dữ liệu gói combo
+        const packagesData = {
+            facebook: [
+                { name: 'Facebook Cơ Bản', price: 99000, code: 'COBAN-FB', desc: '1000 like/comment/share', features: ['1.000 like bài viết', '500 comment chất lượng', '300 share tự nhiên', 'Tốc độ ổn định', 'Bảo hành 30 ngày'] },
+                { name: 'Facebook Chuyên Nghiệp', price: 499000, code: 'CHUYENNGHIEP-FB', desc: '5000 like/comment/share', featured: true, discount: 15, features: ['5.000 like bài viết', '2.500 comment chất lượng', '1.500 share tự nhiên', 'Tốc độ cao', 'Bảo hành 60 ngày + Hỗ trợ VIP'] },
+                { name: 'Facebook Cao Cấp', price: 1299000, code: 'CAOCAP-FB', desc: '20000 like/comment/share', discount: 20, features: ['20.000 like bài viết', '10.000 comment chất lượng', '5.000 share tự nhiên', 'Tốc độ cực cao', 'Bảo hành 90 ngày + Hỗ trợ 24/7'] },
+                { name: 'Facebook VIP', price: 2999000, code: 'VIP-FB', desc: '50000 like/comment/share', vip: true, features: ['50.000 like bài viết', '25.000 comment chất lượng', '15.000 share tự nhiên', 'Tăng 5.000 follower', 'Bảo hành 120 ngày + Hỗ trợ VIP 24/7'] }
+            ],
+            tiktok: [
+                { name: 'TikTok Cơ Bản', price: 89000, code: 'COBAN-TK', desc: '5000 view + 500 like', features: ['5.000 view video', '500 like tự nhiên', '100 comment chất lượng', '50 share video', 'Bảo hành 30 ngày'] },
+                { name: 'TikTok Chuyên Nghiệp', price: 449000, code: 'CHUYENNGHIEP-TK', desc: '50000 view + 5000 like', featured: true, discount: 15, features: ['50.000 view video', '5.000 like tự nhiên', '1.000 comment chất lượng', '500 share video', 'Tăng follower (tùy chọn)'] },
+                { name: 'TikTok Cao Cấp', price: 1199000, code: 'CAOCAP-TK', desc: '200000 view + 20000 like', discount: 20, features: ['200.000 view video', '20.000 like tự nhiên', '5.000 comment chất lượng', '2.000 share video', '1.000 follower chất lượng'] },
+                { name: 'TikTok VIP', price: 2999000, code: 'VIP-TK', desc: '500000 view + 50000 like', vip: true, features: ['500.000 view video', '50.000 like tự nhiên', '10.000 comment chất lượng', '5.000 share video', '5.000 follower chất lượng'] }
+            ],
+            youtube: [
+                { name: 'YouTube Cơ Bản', price: 129000, code: 'COBAN-YT', desc: '10000 view + 1000 like', features: ['10.000 view video', '1.000 like tự nhiên', '200 comment chất lượng', '100 share video', 'Bảo hành 30 ngày'] },
+                { name: 'YouTube Chuyên Nghiệp', price: 599000, code: 'CHUYENNGHIEP-YT', desc: '50000 view + 5000 like', featured: true, discount: 15, features: ['50.000 view video', '5.000 like tự nhiên', '1.000 comment chất lượng', '500 share video', 'Tăng subscriber (tùy chọn)'] },
+                { name: 'YouTube Cao Cấp', price: 1499000, code: 'CAOCAP-YT', desc: '200000 view + 20000 like', discount: 20, features: ['200.000 view video', '20.000 like tự nhiên', '5.000 comment chất lượng', '2.000 share video', '2.000 subscriber chất lượng'] }
+            ],
+            instagram: [
+                { name: 'Instagram Cơ Bản', price: 109000, code: 'COBAN-IG', desc: '1000 like + 500 comment', features: ['1.000 like bài viết', '500 comment chất lượng', '200 share tự nhiên', 'Tốc độ ổn định', 'Bảo hành 30 ngày'] },
+                { name: 'Instagram Chuyên Nghiệp', price: 549000, code: 'CHUYENNGHIEP-IG', desc: '5000 like + 2500 comment', featured: true, discount: 15, features: ['5.000 like bài viết', '2.500 comment chất lượng', '1.000 share tự nhiên', 'Tăng 500 follower', 'Bảo hành 60 ngày'] },
+                { name: 'Instagram Cao Cấp', price: 1399000, code: 'CAOCAP-IG', desc: '20000 like + 10000 comment', discount: 20, features: ['20.000 like bài viết', '10.000 comment chất lượng', '5.000 share tự nhiên', 'Tăng 2.000 follower', 'Bảo hành 90 ngày'] }
+            ],
+            twitter: [
+                { name: 'Twitter Cơ Bản', price: 79000, code: 'COBAN-TW', desc: '1000 like + 500 retweet', features: ['1.000 like tweet', '500 retweet tự nhiên', '200 comment chất lượng', 'Tốc độ ổn định', 'Bảo hành 30 ngày'] },
+                { name: 'Twitter Chuyên Nghiệp', price: 399000, code: 'CHUYENNGHIEP-TW', desc: '5000 like + 2500 retweet', featured: true, discount: 15, features: ['5.000 like tweet', '2.500 retweet tự nhiên', '1.000 comment chất lượng', 'Tăng 500 follower', 'Bảo hành 60 ngày'] },
+                { name: 'Twitter Cao Cấp', price: 1099000, code: 'CAOCAP-TW', desc: '20000 like + 10000 retweet', discount: 20, features: ['20.000 like tweet', '10.000 retweet tự nhiên', '5.000 comment chất lượng', 'Tăng 2.000 follower', 'Bảo hành 90 ngày'] }
+            ],
+            twitch: [
+                { name: 'Twitch Cơ Bản', price: 119000, code: 'COBAN-TWITCH', desc: '5000 view + 500 like', features: ['5.000 view stream', '500 like tự nhiên', '100 comment chất lượng', 'Tăng 50 follower', 'Bảo hành 30 ngày'] },
+                { name: 'Twitch Chuyên Nghiệp', price: 599000, code: 'CHUYENNGHIEP-TWITCH', desc: '50000 view + 5000 like', featured: true, discount: 15, features: ['50.000 view stream', '5.000 like tự nhiên', '1.000 comment chất lượng', 'Tăng 500 follower', 'Bảo hành 60 ngày'] },
+                { name: 'Twitch Cao Cấp', price: 1499000, code: 'CAOCAP-TWITCH', desc: '200000 view + 20000 like', discount: 20, features: ['200.000 view stream', '20.000 like tự nhiên', '5.000 comment chất lượng', 'Tăng 2.000 follower', 'Bảo hành 90 ngày'] }
+            ]
+        };
+
+        // Dữ liệu dịch vụ đơn lẻ
+        const singleServicesData = {
+            facebook: [
+                { type: 'VIEW', title: 'Tăng View Video', price: 50000, per: '10.000 view', code: 'VIEW-FB', desc: 'Chỉ tăng view cho video Facebook' },
+                { type: 'LIKE', title: 'Tăng Like Bài Viết', price: 30000, per: '1.000 like', code: 'LIKE-FB', desc: 'Chỉ tăng like cho bài viết' },
+                { type: 'COMMENT', title: 'Tăng Comment', price: 40000, per: '500 comment', code: 'COMMENT-FB', desc: 'Comment chất lượng, không spam' },
+                { type: 'SHARE', title: 'Tăng Share', price: 60000, per: '300 share', code: 'SHARE-FB', desc: 'Share tự nhiên, không bot' },
+                { type: 'FOLLOWER', title: 'Tăng Follower', price: 150000, per: '1.000 follower', code: 'FOLLOWER-FB', desc: 'Follower thật, tương tác tốt' }
+            ],
+            tiktok: [
+                { type: 'VIEW', title: 'Tăng View Video', price: 40000, per: '10.000 view', code: 'VIEW-TK', desc: 'Chỉ tăng view cho video TikTok' },
+                { type: 'LIKE', title: 'Tăng Like Video', price: 25000, per: '1.000 like', code: 'LIKE-TK', desc: 'Chỉ tăng like cho video' },
+                { type: 'COMMENT', title: 'Tăng Comment', price: 35000, per: '500 comment', code: 'COMMENT-TK', desc: 'Comment chất lượng, có ý nghĩa' },
+                { type: 'SHARE', title: 'Tăng Share', price: 50000, per: '300 share', code: 'SHARE-TK', desc: 'Share tự nhiên, không bot' },
+                { type: 'FOLLOWER', title: 'Tăng Follower', price: 120000, per: '1.000 follower', code: 'FOLLOWER-TK', desc: 'Follower thật, tương tác tốt' }
+            ],
+            youtube: [
+                { type: 'VIEW', title: 'Tăng View Video', price: 50000, per: '10.000 view', code: 'VIEW-YT', desc: 'Chỉ tăng view cho video YouTube' },
+                { type: 'LIKE', title: 'Tăng Like Video', price: 30000, per: '1.000 like', code: 'LIKE-YT', desc: 'Chỉ tăng like cho video' },
+                { type: 'COMMENT', title: 'Tăng Comment', price: 40000, per: '500 comment', code: 'COMMENT-YT', desc: 'Comment chất lượng, không spam' },
+                { type: 'SUBSCRIBER', title: 'Tăng Subscriber', price: 180000, per: '1.000 subscriber', code: 'SUBSCRIBER-YT', desc: 'Subscriber thật, hoạt động tích cực' }
+            ],
+            instagram: [
+                { type: 'VIEW', title: 'Tăng View Story/Reel', price: 45000, per: '10.000 view', code: 'VIEW-IG', desc: 'Chỉ tăng view cho story/reel' },
+                { type: 'LIKE', title: 'Tăng Like Bài Viết', price: 28000, per: '1.000 like', code: 'LIKE-IG', desc: 'Chỉ tăng like cho bài viết' },
+                { type: 'COMMENT', title: 'Tăng Comment', price: 38000, per: '500 comment', code: 'COMMENT-IG', desc: 'Comment chất lượng, không spam' },
+                { type: 'FOLLOWER', title: 'Tăng Follower', price: 130000, per: '1.000 follower', code: 'FOLLOWER-IG', desc: 'Follower thật, tương tác tốt' }
+            ],
+            twitter: [
+                { type: 'LIKE', title: 'Tăng Like Tweet', price: 25000, per: '1.000 like', code: 'LIKE-TW', desc: 'Chỉ tăng like cho tweet' },
+                { type: 'RETWEET', title: 'Tăng Retweet', price: 35000, per: '500 retweet', code: 'RETWEET-TW', desc: 'Retweet tự nhiên, không bot' },
+                { type: 'COMMENT', title: 'Tăng Comment', price: 30000, per: '500 comment', code: 'COMMENT-TW', desc: 'Comment chất lượng, có ý nghĩa' },
+                { type: 'FOLLOWER', title: 'Tăng Follower', price: 110000, per: '1.000 follower', code: 'FOLLOWER-TW', desc: 'Follower thật, hoạt động tích cực' }
+            ],
+            twitch: [
+                { type: 'VIEW', title: 'Tăng View Stream', price: 55000, per: '10.000 view', code: 'VIEW-TWITCH', desc: 'Chỉ tăng view cho stream' },
+                { type: 'LIKE', title: 'Tăng Like Stream', price: 32000, per: '1.000 like', code: 'LIKE-TWITCH', desc: 'Chỉ tăng like cho stream' },
+                { type: 'COMMENT', title: 'Tăng Comment', price: 42000, per: '500 comment', code: 'COMMENT-TWITCH', desc: 'Comment chất lượng, không spam' },
+                { type: 'FOLLOWER', title: 'Tăng Follower', price: 140000, per: '1.000 follower', code: 'FOLLOWER-TWITCH', desc: 'Follower thật, tương tác tốt' }
+            ]
+        };
+
+        // Biến toàn cục
+        let currentUser = null;
+        let currentPlatform = 'facebook';
+        let currentServiceType = 'combo';
+
+        // DOM Elements
+        const platformTabsContainer = document.getElementById('platformTabsContainer');
+        const serviceTypeTabs = document.querySelectorAll('.service-type-tab');
+        const platformContentContainer = document.getElementById('platformContentContainer');
+
+        // Khởi tạo
+        document.addEventListener('DOMContentLoaded', function() {
+            initPlatformTabs();
+            loadPlatformContent('facebook', 'combo');
+            initEventListeners();
+        });
+
+        // Khởi tạo tabs nền tảng
+        function initPlatformTabs() {
+            platforms.forEach((platform, index) => {
+                const tab = document.createElement('div');
+                tab.className = `platform-tab ${platform.color}-tab ${platform.color}-bg ${index === 0 ? 'active' : ''}`;
+                tab.dataset.platform = platform.id;
+                
+                tab.innerHTML = `
+                    <i class="${platform.icon} platform-icon ${platform.color}-icon"></i>
+                    <span class="platform-name">${platform.name}</span>
+                `;
+                
+                tab.addEventListener('click', () => {
+                    // Xóa active class từ tất cả tabs
+                    document.querySelectorAll('.platform-tab').forEach(t => t.classList.remove('active'));
+                    // Thêm active class cho tab được click
+                    tab.classList.add('active');
+                    // Cập nhật platform hiện tại
+                    currentPlatform = platform.id;
+                    // Tải nội dung
+                    loadPlatformContent(platform.id, currentServiceType);
+                });
+                
+                platformTabsContainer.appendChild(tab);
+            });
+        }
+
+        // Tải nội dung platform
+        function loadPlatformContent(platformId, serviceType) {
+            platformContentContainer.innerHTML = '';
+            
+            if (serviceType === 'combo') {
+                loadComboPackages(platformId);
+            } else {
+                loadSingleServices(platformId);
+            }
+        }
+
+        // Tải gói combo
+        function loadComboPackages(platformId) {
+            const packages = packagesData[platformId] || packagesData.facebook;
+            
+            const grid = document.createElement('div');
+            grid.className = 'packages-grid';
+            
+            packages.forEach(pkg => {
+                const card = document.createElement('div');
+                card.className = `package-card ${pkg.featured ? 'featured' : ''} ${pkg.vip ? 'vip' : ''}`;
+                
+                let badge = '';
+                if (pkg.discount) {
+                    badge = `<div class="package-badge">Khuyến Mãi ${pkg.discount}%</div>`;
+                } else if (pkg.vip) {
+                    badge = `<div class="package-badge vip">VIP</div>`;
+                }
+                
+                card.innerHTML = `
+                    ${badge}
+                    <div class="package-header">
+                        <h3>${pkg.name}</h3>
+                        <div class="package-price">${pkg.price.toLocaleString()}<span>đ</span></div>
+                        <p>${pkg.desc}</p>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            ${pkg.features.map(feature => `<li><i class="fas fa-check"></i> ${feature}</li>`).join('')}
+                        </ul>
+                        <button class="package-button" onclick="handlePurchase('${pkg.code}', ${pkg.price}, '${pkg.name}', 'combo')">
+                            Mua Ngay
+                        </button>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+            
+            platformContentContainer.appendChild(grid);
+        }
+
+        // Tải dịch vụ đơn lẻ
+        function loadSingleServices(platformId) {
+            const services = singleServicesData[platformId] || singleServicesData.facebook;
+            
+            const grid = document.createElement('div');
+            grid.className = 'single-services-grid';
+            
+            services.forEach(service => {
+                const card = document.createElement('div');
+                card.className = 'single-service-card';
+                
+                card.innerHTML = `
+                    <div class="service-type">${service.type}</div>
+                    <h3 class="service-title">${service.title}</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.95rem;">${service.desc}</p>
+                    <div class="service-price">${service.price.toLocaleString()}<span>đ / ${service.per}</span></div>
+                    <button class="service-button" onclick="handlePurchase('${service.code}', ${service.price}, '${service.title}', 'single')">
+                        Mua Ngay
+                    </button>
+                `;
+                
+                grid.appendChild(card);
+            });
+            
+            platformContentContainer.appendChild(grid);
+        }
+
+        // Xử lý mua hàng
+        function handlePurchase(code, price, name, type) {
+            // Tạo mã giao dịch ngẫu nhiên
+            const transactionId = 'TXN' + Date.now().toString().slice(-8) + Math.floor(Math.random() * 1000);
+            
+            document.getElementById('paymentTitle').textContent = 'Thanh Toán Dịch Vụ';
+            document.getElementById('paymentDescription').textContent = `Thanh toán ${price.toLocaleString()}đ để mua "${name}"`;
+            document.getElementById('paymentPackageName').textContent = name;
+            document.getElementById('paymentAmount').textContent = `${price.toLocaleString()}đ`;
+            document.getElementById('paymentContent').textContent = `${code}-${transactionId}`;
+            
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+
+        // Khởi tạo event listeners
+        function initEventListeners() {
+            // Service type tabs
+            serviceTypeTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Xóa active class
+                    serviceTypeTabs.forEach(t => t.classList.remove('active'));
+                    // Thêm active class
+                    this.classList.add('active');
+                    // Cập nhật service type
+                    currentServiceType = this.dataset.type;
+                    // Tải nội dung mới
+                    loadPlatformContent(currentPlatform, currentServiceType);
+                });
+            });
+            
+            // Mobile menu
+            document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+                const nav = document.getElementById('mainNav');
+                nav.classList.toggle('active');
+                this.innerHTML = nav.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : 
+                    '<i class="fas fa-bars"></i>';
+            });
+            
+            // Auth buttons
+            document.getElementById('showLogin').addEventListener('click', function() {
+                document.getElementById('authModal').style.display = 'flex';
+            });
+            
+            document.getElementById('showRegister').addEventListener('click', function() {
+                document.getElementById('authModal').style.display = 'flex';
+            });
+            
+            // Auth tabs
+            document.querySelectorAll('.auth-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.dataset.tab;
+                    
+                    // Xóa active class
+                    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+                    
+                    // Thêm active class
+                    this.classList.add('active');
+                    document.getElementById(`${tabName}Form`).classList.add('active');
+                });
+            });
+            
+            // Close modals
+            document.querySelectorAll('.close-modal').forEach(closeBtn => {
+                closeBtn.addEventListener('click', function() {
+                    this.closest('.modal').style.display = 'none';
+                });
+            });
+            
+            // Cancel payment
+            document.getElementById('cancelPayment').addEventListener('click', function() {
+                document.getElementById('paymentModal').style.display = 'none';
+            });
+            
+            // Confirm payment
+            document.getElementById('confirmPayment').addEventListener('click', function() {
+                const serviceName = document.getElementById('paymentPackageName').textContent;
+                const amount = document.getElementById('paymentAmount').textContent;
+                
+                alert(`Cảm ơn bạn đã thanh toán ${amount} cho dịch vụ "${serviceName}"!\n\nVui lòng gửi xác nhận thanh toán và link bài viết/video đến email: vuducanh22082009@gmail.com\n\nDịch vụ sẽ được kích hoạt trong vòng 5-30 phút sau khi nhận được xác nhận.`);
+                document.getElementById('paymentModal').style.display = 'none';
+            });
+            
+            // Close modal khi click bên ngoài
+            window.addEventListener('click', function(e) {
+                if (e.target.classList.contains('modal')) {
+                    e.target.style.display = 'none';
+                }
+            });
+            
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Đóng mobile menu nếu đang mở
+                        const nav = document.getElementById('mainNav');
+                        if (nav.classList.contains('active')) {
+                            nav.classList.remove('active');
+                            document.getElementById('mobileMenuBtn').innerHTML = '<i class="fas fa-bars"></i>';
+                        }
+                    }
+                });
+            });
+            
+            // CTA button
+            document.querySelector('.cta-button').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('#platforms').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Demo login (tạm thời)
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('loginUsername').value;
+                
+                if (!username.trim()) {
+                    alert('Vui lòng nhập tên đăng nhập');
+                    return;
+                }
+                
+                currentUser = {
+                    username: username
+                };
+                
+                updateUserDisplay();
+                document.getElementById('authModal').style.display = 'none';
+                alert('Đăng nhập thành công!');
+            });
+            
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('regUsername').value;
+                const email = document.getElementById('regEmail').value;
+                const password = document.getElementById('regPassword').value;
+                const confirmPassword = document.getElementById('regConfirmPassword').value;
+                
+                if (!username.trim() || !email.trim() || !password.trim()) {
+                    alert('Vui lòng nhập đầy đủ thông tin');
+                    return;
+                }
+                
+                if (password !== confirmPassword) {
+                    alert('Mật khẩu xác nhận không khớp');
+                    return;
+                }
+                
+                currentUser = {
+                    username: username,
+                    email: email
+                };
+                
+                updateUserDisplay();
+                document.getElementById('authModal').style.display = 'none';
+                alert('Đăng ký thành công! Chào mừng bạn đến với BoostViewPro');
+            });
+            
+            // Logout
+            document.getElementById('userAvatar').addEventListener('click', function() {
+                if (currentUser && confirm('Bạn có muốn đăng xuất không?')) {
+                    currentUser = null;
+                    updateUserDisplay();
+                }
+            });
+        }
+
+        // Cập nhật hiển thị user
+        function updateUserDisplay() {
+            if (currentUser) {
+                document.getElementById('authButtons').style.display = 'none';
+                document.getElementById('loggedInUser').style.display = 'flex';
+                document.getElementById('avatarText').textContent = currentUser.username.charAt(0).toUpperCase();
+            } else {
+                document.getElementById('authButtons').style.display = 'flex';
+                document.getElementById('loggedInUser').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
