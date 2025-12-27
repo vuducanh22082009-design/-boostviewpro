@@ -191,7 +191,7 @@
         
         /* Hero Section */
         .hero {
-            padding: 100px 0 150px;
+            padding: 100px 0 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -284,6 +284,186 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(138, 43, 226, 0.6);
             background: linear-gradient(135deg, #9a3be6, #6a1daa);
+        }
+        
+        /* TRUST SECTION - MỚI */
+        .trust-section {
+            padding: 80px 0;
+            background: rgba(10, 10, 24, 0.5);
+            position: relative;
+        }
+        
+        .trust-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .trust-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .trust-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .trust-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--primary-color);
+        }
+        
+        .trust-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .trust-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .trust-icon {
+            font-size: 3rem;
+            color: var(--accent-color-2);
+            margin-bottom: 25px;
+            display: inline-block;
+            background: rgba(0, 255, 157, 0.1);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+        }
+        
+        .trust-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .trust-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .trust-badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+        
+        /* TESTIMONIALS - MỚI */
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .testimonial-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-info .platform {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .testimonial-rating {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-content {
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.6;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 15px;
+        }
+        
+        .testimonial-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(138, 43, 226, 0.2);
+            font-size: 0.9rem;
+        }
+        
+        .stat-badge {
+            background: rgba(138, 43, 226, 0.1);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 600;
         }
         
         /* Platforms Section */
@@ -662,7 +842,7 @@
             padding: 40px;
             border-radius: var(--border-radius);
             width: 90%;
-            max-width: 450px; /* Giảm chiều rộng tối đa */
+            max-width: 450px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             border: 2px solid rgba(138, 43, 226, 0.5);
             position: relative;
@@ -759,7 +939,7 @@
             padding: 20px;
             background: white;
             border-radius: var(--border-radius);
-            max-width: 320px; /* Tăng kích thước tối đa */
+            max-width: 320px;
             margin-left: auto;
             margin-right: auto;
             border: 2px solid #e0e0e0;
@@ -767,7 +947,7 @@
         
         .qr-code {
             width: 100%;
-            max-width: 280px; /* Tăng kích thước ảnh QR */
+            max-width: 280px;
             height: auto;
             margin-bottom: 15px;
             border-radius: 8px;
@@ -1083,6 +1263,11 @@
             .qr-code {
                 max-width: 250px;
             }
+            
+            .trust-container,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1141,7 +1326,9 @@
             <nav id="mainNav">
                 <ul>
                     <li><a href="#home">Trang Chủ</a></li>
+                    <li><a href="#trust">Tại Sao Chọn Chúng Tôi</a></li>
                     <li><a href="#platforms">Dịch Vụ</a></li>
+                    <li><a href="#testimonials">Khách Hàng Nói Gì</a></li>
                     <li><a href="#guide">Hướng Dẫn</a></li>
                     <li><a href="#contact">Liên Hệ</a></li>
                 </ul>
@@ -1189,6 +1376,156 @@
             </div>
             
             <a href="#platforms" class="cta-button animate__animated animate__pulse animate__delay-3s">XEM DỊCH VỤ NGAY</a>
+        </div>
+    </section>
+
+    <!-- Trust Section - MỚI -->
+    <section class="trust-section" id="trust">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tại Sao Chọn BoostViewPro?</h2>
+                <p>Chúng tôi cam kết mang đến dịch vụ tốt nhất với sự uy tín hàng đầu</p>
+            </div>
+            
+            <div class="trust-container">
+                <div class="trust-card">
+                    <div class="trust-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>An Toàn Tuyệt Đối</h3>
+                    <p>Sử dụng công nghệ hiện đại, đảm bảo tài khoản của bạn luôn an toàn. Không yêu cầu mật khẩu, không can thiệp vào tài khoản.</p>
+                    <div class="trust-badge">100% BẢO MẬT</div>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Tốc Độ Nhanh Chóng</h3>
+                    <p>View tăng nhanh chỉ sau 5-30 phút. Hệ thống tự động 24/7, xử lý ngay lập tức sau khi nhận được thanh toán.</p>
+                    <div class="trust-badge">XỬ LÝ TỨC THÌ</div>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>View Chất Lượng Cao</h3>
+                    <p>View thật từ người dùng thật, không sử dụng bot hay phần mềm tự động. Tương tác tự nhiên, không bị giảm view.</p>
+                    <div class="trust-badge">VIEW THẬT 100%</div>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Hỗ Trợ 24/7</h3>
+                    <p>Đội ngũ hỗ trợ chuyên nghiệp luôn sẵn sàng giải đáp mọi thắc mắc. Hotline, Zalo, Telegram hỗ trợ nhanh chóng.</p>
+                    <div class="trust-badge">HỖ TRỢ 24/7</div>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Giá Cả Cạnh Tranh</h3>
+                    <p>Giá tốt nhất thị trường với chất lượng vượt trội. Nhiều gói dịch vụ phù hợp với mọi nhu cầu và ngân sách.</p>
+                    <div class="trust-badge">GIÁ TỐT NHẤT</div>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Bảo Hành Dài Hạn</h3>
+                    <p>Bảo hành từ 30-120 ngày tùy gói. Hoàn tiền 100% nếu không nhận được view trong thời gian cam kết.</p>
+                    <div class="trust-badge">BẢO HÀNH ĐẾN 120 NGÀY</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section - MỚI -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Khách Hàng Nói Gì Về Chúng Tôi</h2>
+                <p>Hàng ngàn khách hàng đã tin tưởng và hài lòng với dịch vụ của BoostViewPro</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">NT</div>
+                        <div class="testimonial-info">
+                            <h4>Nguyễn Thành</h4>
+                            <div class="platform">Facebook Influencer</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        "Tôi đã sử dụng dịch vụ của BoostViewPro cho fanpage 500k followers. View tăng nhanh, chất lượng, và quan trọng là an toàn tuyệt đối. Fanpage không bị ảnh hưởng gì, rất đáng tin cậy!"
+                    </div>
+                    <div class="testimonial-stats">
+                        <div class="stat-badge">Đã tăng: 150K view</div>
+                        <div class="stat-badge">Thời gian: 2 tháng</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">LT</div>
+                        <div class="testimonial-info">
+                            <h4>Linh Trang</h4>
+                            <div class="platform">TikTok Creator</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        "Mình làm TikTok bán hàng, cần tăng view nhanh cho các video giới thiệu sản phẩm. BoostViewPro xử lý siêu nhanh, view thật nên tỉ lệ chuyển đổi tốt. Đã giới thiệu cho nhiều bạn cùng ngành!"
+                    </div>
+                    <div class="testimonial-stats">
+                        <div class="stat-badge">Đã tăng: 2M view</div>
+                        <div class="stat-badge">Video: 50+ videos</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">MQ</div>
+                        <div class="testimonial-info">
+                            <h4>Minh Quân</h4>
+                            <div class="platform">YouTube Gaming</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        "Kênh YouTube gaming của mình đã được BoostViewPro hỗ trợ tăng view và sub. View chất lượng, không bị drop, sub thật tương tác tốt. Hỗ trợ rất nhiệt tình, giải đáp mọi thắc mắc nhanh chóng."
+                    </div>
+                    <div class="testimonial-stats">
+                        <div class="stat-badge">Đã tăng: 50K sub</div>
+                        <div class="stat-badge">Kênh: 200K subscribers</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1320,7 +1657,9 @@
                     <h3>Liên Kết Nhanh</h3>
                     <ul>
                         <li><a href="#home">Trang Chủ</a></li>
+                        <li><a href="#trust">Tại Sao Chọn Chúng Tôi</a></li>
                         <li><a href="#platforms">Dịch Vụ</a></li>
+                        <li><a href="#testimonials">Đánh Giá</a></li>
                         <li><a href="#guide">Hướng Dẫn</a></li>
                         <li><a href="#contact">Liên Hệ</a></li>
                     </ul>
