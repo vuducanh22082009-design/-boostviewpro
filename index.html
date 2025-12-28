@@ -233,6 +233,27 @@
             color: var(--text-muted);
         }
         
+        /* Balance Display */
+        .balance-display {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(0, 255, 157, 0.1);
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 255, 157, 0.3);
+            margin-left: 15px;
+        }
+        
+        .balance-amount {
+            font-weight: 700;
+            color: var(--accent-color-2);
+            margin-right: 10px;
+        }
+        
+        .balance-icon {
+            color: var(--accent-color-2);
+        }
+        
         /* Thống kê uy tín */
         .stats-container {
             display: flex;
@@ -286,7 +307,7 @@
             background: linear-gradient(135deg, #9a3be6, #6a1daa);
         }
         
-        /* TRUST SECTION - MỚI */
+        /* TRUST SECTION */
         .trust-section {
             padding: 80px 0;
             background: rgba(10, 10, 24, 0.5);
@@ -380,7 +401,7 @@
             letter-spacing: 1px;
         }
         
-        /* TESTIMONIALS - MỚI */
+        /* TESTIMONIALS */
         .testimonials {
             padding: 80px 0;
         }
@@ -822,6 +843,46 @@
             cursor: not-allowed;
         }
         
+        /* User Actions */
+        .user-actions {
+            display: flex;
+            gap: 10px;
+            margin-left: 15px;
+        }
+        
+        .user-action-btn {
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 0.9rem;
+        }
+        
+        .btn-deposit {
+            background: rgba(0, 255, 157, 0.1);
+            color: var(--accent-color-2);
+            border: 1px solid rgba(0, 255, 157, 0.3);
+        }
+        
+        .btn-history {
+            background: rgba(138, 43, 226, 0.1);
+            color: var(--primary-color);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+        }
+        
+        .btn-admin {
+            background: rgba(255, 107, 107, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+        }
+        
+        .btn-deposit:hover, .btn-history:hover, .btn-admin:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
         /* Modals */
         .modal {
             display: none;
@@ -842,10 +903,16 @@
             padding: 40px;
             border-radius: var(--border-radius);
             width: 90%;
-            max-width: 450px;
+            max-width: 500px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             border: 2px solid rgba(138, 43, 226, 0.5);
             position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-wide {
+            max-width: 800px;
         }
         
         .close-modal {
@@ -869,6 +936,72 @@
             color: white;
             background: var(--accent-color);
             transform: rotate(90deg);
+        }
+        
+        /* Deposit Slider */
+        .deposit-slider-container {
+            margin: 30px 0;
+        }
+        
+        .slider-value {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-color-2);
+            margin-bottom: 20px;
+        }
+        
+        .deposit-slider {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: rgba(138, 43, 226, 0.2);
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .deposit-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: var(--gradient);
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .deposit-packages {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .deposit-package {
+            background: rgba(138, 43, 226, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        
+        .deposit-package:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .deposit-package.active {
+            border-color: var(--accent-color-2);
+            background: rgba(0, 255, 157, 0.1);
+        }
+        
+        .deposit-bonus {
+            color: var(--accent-color-2);
+            font-weight: 700;
+            margin-top: 5px;
         }
         
         /* Payment Details */
@@ -965,7 +1098,7 @@
             font-weight: 600;
         }
         
-        .form-group input {
+        .form-group input, .form-group textarea, .form-group select {
             width: 100%;
             padding: 15px;
             background-color: rgba(10, 10, 24, 0.5);
@@ -976,7 +1109,7 @@
             transition: var(--transition);
         }
         
-        .form-group input:focus {
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
             outline: none;
             border-color: var(--accent-color);
             box-shadow: 0 0 10px rgba(255, 107, 107, 0.2);
@@ -1029,6 +1162,116 @@
         
         .auth-form.active {
             display: block;
+        }
+        
+        /* History Table */
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .history-table th {
+            text-align: left;
+            padding: 15px;
+            background: rgba(138, 43, 226, 0.1);
+            color: var(--text-color);
+            border-bottom: 2px solid rgba(138, 43, 226, 0.3);
+        }
+        
+        .history-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.1);
+            color: var(--text-muted);
+        }
+        
+        .history-table tr:hover {
+            background: rgba(138, 43, 226, 0.05);
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .status-pending {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+        
+        .status-completed {
+            background: rgba(0, 255, 157, 0.1);
+            color: var(--accent-color-2);
+        }
+        
+        .status-processing {
+            background: rgba(138, 43, 226, 0.1);
+            color: var(--primary-color);
+        }
+        
+        /* Order Status */
+        .order-status-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+        
+        .progress-container {
+            margin: 20px 0;
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: rgba(138, 43, 226, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+        
+        .order-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .detail-item {
+            background: rgba(138, 43, 226, 0.05);
+            padding: 15px;
+            border-radius: var(--border-radius);
+        }
+        
+        .detail-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+        
+        .detail-value {
+            font-weight: 700;
+            color: var(--text-color);
+        }
+        
+        .time-remaining {
+            color: var(--accent-color);
+            font-weight: 700;
         }
         
         /* Hướng dẫn Section */
@@ -1268,6 +1511,25 @@
             .testimonial-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .deposit-packages {
+                grid-template-columns: 1fr;
+            }
+            
+            .user-actions {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 10px;
+                margin-left: 0;
+            }
+            
+            .balance-display {
+                margin-left: 0;
+                margin-top: 10px;
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1341,6 +1603,17 @@
                 </div>
                 
                 <div id="loggedInUser" style="display: none;">
+                    <div class="user-actions">
+                        <button class="user-action-btn btn-deposit" id="depositBtn">Nạp Tiền</button>
+                        <button class="user-action-btn btn-history" id="historyBtn">Lịch Sử</button>
+                        <button class="user-action-btn btn-admin" id="adminBtn" style="display: none;">Admin</button>
+                    </div>
+                    
+                    <div class="balance-display">
+                        <span class="balance-amount" id="userBalance">0</span>
+                        <i class="fas fa-wallet balance-icon"></i>
+                    </div>
+                    
                     <div class="user-avatar" id="userAvatar">
                         <span id="avatarText">A</span>
                     </div>
@@ -1379,7 +1652,7 @@
         </div>
     </section>
 
-    <!-- Trust Section - MỚI -->
+    <!-- Trust Section -->
     <section class="trust-section" id="trust">
         <div class="container">
             <div class="section-title">
@@ -1445,7 +1718,7 @@
         </div>
     </section>
 
-    <!-- Testimonials Section - MỚI -->
+    <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-title">
@@ -1749,11 +2022,161 @@
         </div>
     </div>
 
+    <!-- Deposit Modal -->
+    <div id="depositModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeDeposit">&times;</span>
+            <h2>Nạp tiền vào tài khoản</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Chọn gói nạp hoặc kéo thanh trượt để chọn số tiền</p>
+            
+            <div class="slider-value" id="depositSliderValue">50.000 VNĐ</div>
+            
+            <div class="deposit-slider-container">
+                <input type="range" min="10000" max="500000" step="10000" value="50000" class="deposit-slider" id="depositSlider">
+                <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                    <span style="color: var(--text-muted);">10.000 VNĐ</span>
+                    <span style="color: var(--text-muted);">500.000 VNĐ</span>
+                </div>
+            </div>
+            
+            <div class="deposit-packages">
+                <div class="deposit-package" data-amount="50000">
+                    <h3>50.000 VNĐ</h3>
+                    <p>Nhận 55.000 VNĐ</p>
+                    <div class="deposit-bonus">+5.000 VNĐ</div>
+                </div>
+                <div class="deposit-package" data-amount="100000">
+                    <h3>100.000 VNĐ</h3>
+                    <p>Nhận 115.000 VNĐ</p>
+                    <div class="deposit-bonus">+15.000 VNĐ</div>
+                </div>
+                <div class="deposit-package" data-amount="200000">
+                    <h3>200.000 VNĐ</h3>
+                    <p>Nhận 240.000 VNĐ</p>
+                    <div class="deposit-bonus">+40.000 VNĐ</div>
+                </div>
+                <div class="deposit-package" data-amount="500000">
+                    <h3>500.000 VNĐ</h3>
+                    <p>Nhận 600.000 VNĐ</p>
+                    <div class="deposit-bonus">+100.000 VNĐ</div>
+                </div>
+            </div>
+            
+            <div class="payment-details">
+                <p><strong>Số tiền nạp:</strong> <span id="depositAmount">50.000</span> VNĐ</p>
+                <p><strong>Khuyến mãi:</strong> <span id="depositBonus">5.000</span> VNĐ</p>
+                <p><strong>Tổng nhận được:</strong> <span id="depositTotal">55.000</span> VNĐ</p>
+            </div>
+            
+            <div class="payment-buttons">
+                <button class="payment-btn cancel" id="cancelDeposit">Hủy</button>
+                <button class="payment-btn confirm" id="confirmDeposit">Nạp tiền</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Modal -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content modal-wide">
+            <span class="close-modal" id="closeAdmin">&times;</span>
+            <h2>Quản lý người dùng - Admin</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Thêm số dư cho người dùng</p>
+            
+            <div class="form-group">
+                <label for="adminSelectUser">Chọn người dùng</label>
+                <select id="adminSelectUser">
+                    <option value="">-- Chọn người dùng --</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="adminAmount">Số tiền thêm (VNĐ)</label>
+                <input type="number" id="adminAmount" placeholder="Nhập số tiền" min="1000" max="10000000">
+            </div>
+            
+            <div class="form-group">
+                <label for="adminReason">Lý do (tùy chọn)</label>
+                <input type="text" id="adminReason" placeholder="Nhập lý do thêm tiền">
+            </div>
+            
+            <div class="payment-buttons">
+                <button class="payment-btn cancel" id="cancelAdmin">Hủy</button>
+                <button class="payment-btn confirm" id="confirmAdmin">Thêm số dư</button>
+            </div>
+            
+            <h3 style="margin-top: 40px;">Danh sách người dùng</h3>
+            <div id="adminUserList" style="max-height: 300px; overflow-y: auto; margin-top: 20px;">
+                <!-- User list will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div id="historyModal" class="modal">
+        <div class="modal-content modal-wide">
+            <span class="close-modal" id="closeHistory">&times;</span>
+            <h2>Lịch sử giao dịch</h2>
+            
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <button class="service-type-tab active" data-history="deposit">Lịch sử nạp tiền</button>
+                <button class="service-type-tab" data-history="order">Lịch sử mua dịch vụ</button>
+                <button class="service-type-tab" data-history="orderStatus">Trạng thái đơn hàng</button>
+            </div>
+            
+            <div id="depositHistoryContent">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Mã giao dịch</th>
+                            <th>Số tiền</th>
+                            <th>Khuyến mãi</th>
+                            <th>Tổng nhận</th>
+                            <th>Thời gian</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="depositHistoryTable">
+                        <!-- Deposit history will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="orderHistoryContent" style="display: none;">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Dịch vụ</th>
+                            <th>Số tiền</th>
+                            <th>Thời gian</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orderHistoryTable">
+                        <!-- Order history will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="orderStatusContent" style="display: none;">
+                <div id="orderStatusList">
+                    <!-- Order status will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
     <div id="paymentModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" id="closePayment">&times;</span>
             <h2 id="paymentTitle">Thanh Toán Dịch Vụ</h2>
-            <p id="paymentDescription" style="color: var(--text-muted); margin-bottom: 20px;">Vui lòng quét mã QR để chuyển khoản qua ZaloPay</p>
+            <p id="paymentDescription" style="color: var(--text-muted); margin-bottom: 20px;">Vui lòng nhập link và quét mã QR để chuyển khoản qua ZaloPay</p>
+            
+            <div class="form-group">
+                <label for="videoLink">Link video/bài đăng</label>
+                <input type="url" id="videoLink" placeholder="https://www.youtube.com/watch?v=..." required>
+            </div>
             
             <div class="qr-container">
                 <img src="image.png" alt="QR Code thanh toán" class="qr-code">
@@ -1873,6 +2296,69 @@
         let currentUser = null;
         let currentPlatform = 'facebook';
         let currentServiceType = 'combo';
+        let selectedService = null;
+        const ADMIN_EMAIL = 'vuducanh22082009@gmail.com';
+
+        // Khởi tạo localStorage
+        function initializeStorage() {
+            if (!localStorage.getItem('users')) {
+                localStorage.setItem('users', JSON.stringify({}));
+            }
+            
+            if (!localStorage.getItem('transactions')) {
+                localStorage.setItem('transactions', JSON.stringify({
+                    deposits: [],
+                    orders: []
+                }));
+            }
+        }
+
+        // Lưu thông tin người dùng
+        function saveUser(user) {
+            const users = JSON.parse(localStorage.getItem('users'));
+            users[user.username] = user;
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        // Lấy thông tin người dùng
+        function getUser(username) {
+            const users = JSON.parse(localStorage.getItem('users'));
+            return users[username];
+        }
+
+        // Lưu giao dịch
+        function saveTransaction(type, transaction) {
+            const transactions = JSON.parse(localStorage.getItem('transactions'));
+            transaction.id = Date.now().toString();
+            transaction.date = new Date().toISOString();
+            
+            if (type === 'deposit') {
+                transactions.deposits.push(transaction);
+            } else if (type === 'order') {
+                transactions.orders.push(transaction);
+            }
+            
+            localStorage.setItem('transactions', JSON.stringify(transactions));
+            return transaction;
+        }
+
+        // Lấy giao dịch theo người dùng
+        function getUserTransactions(username) {
+            const transactions = JSON.parse(localStorage.getItem('transactions'));
+            
+            const userDeposits = transactions.deposits.filter(d => d.username === username);
+            const userOrders = transactions.orders.filter(o => o.username === username);
+            
+            return {
+                deposits: userDeposits,
+                orders: userOrders
+            };
+        }
+
+        // Format tiền
+        function formatMoney(amount) {
+            return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
 
         // DOM Elements
         const platformTabsContainer = document.getElementById('platformTabsContainer');
@@ -1881,9 +2367,20 @@
 
         // Khởi tạo
         document.addEventListener('DOMContentLoaded', function() {
+            initializeStorage();
             initPlatformTabs();
             loadPlatformContent('facebook', 'combo');
             initEventListeners();
+            
+            // Kiểm tra nếu đã đăng nhập
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                const user = JSON.parse(savedUser);
+                if (getUser(user.username)) {
+                    currentUser = getUser(user.username);
+                    updateUserDisplay();
+                }
+            }
         });
 
         // Khởi tạo tabs nền tảng
@@ -1946,7 +2443,7 @@
                     ${badge}
                     <div class="package-header">
                         <h3>${pkg.name}</h3>
-                        <div class="package-price">${pkg.price.toLocaleString()}<span>đ</span></div>
+                        <div class="package-price">${formatMoney(pkg.price)}<span>đ</span></div>
                         <p>${pkg.desc}</p>
                     </div>
                     <div class="package-body">
@@ -1980,7 +2477,7 @@
                     <div class="service-type">${service.type}</div>
                     <h3 class="service-title">${service.title}</h3>
                     <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.95rem;">${service.desc}</p>
-                    <div class="service-price">${service.price.toLocaleString()}<span>đ / ${service.per}</span></div>
+                    <div class="service-price">${formatMoney(service.price)}<span>đ / ${service.per}</span></div>
                     <button class="service-button" onclick="handlePurchase('${service.code}', ${service.price}, '${service.title}', 'single')">
                         Mua Ngay
                     </button>
@@ -1994,15 +2491,33 @@
 
         // Xử lý mua hàng
         function handlePurchase(code, price, name, type) {
-            // Tạo mã giao dịch ngẫu nhiên
-            const transactionId = 'TXN' + Date.now().toString().slice(-8) + Math.floor(Math.random() * 1000);
+            // Kiểm tra đăng nhập
+            if (!currentUser) {
+                alert('Vui lòng đăng nhập để mua dịch vụ');
+                document.getElementById('authModal').style.display = 'flex';
+                return;
+            }
             
+            // Lưu thông tin dịch vụ đang chọn
+            selectedService = {
+                code,
+                price,
+                name,
+                type
+            };
+            
+            // Đặt lại trường link
+            document.getElementById('videoLink').value = '';
+            
+            // Cập nhật thông tin thanh toán
+            const transactionId = 'TXN' + Date.now().toString().slice(-8) + Math.floor(Math.random() * 1000);
             document.getElementById('paymentTitle').textContent = 'Thanh Toán Dịch Vụ';
-            document.getElementById('paymentDescription').textContent = `Thanh toán ${price.toLocaleString()}đ để mua "${name}"`;
+            document.getElementById('paymentDescription').textContent = `Thanh toán ${formatMoney(price)}đ để mua "${name}"`;
             document.getElementById('paymentPackageName').textContent = name;
-            document.getElementById('paymentAmount').textContent = `${price.toLocaleString()}đ`;
+            document.getElementById('paymentAmount').textContent = `${formatMoney(price)}đ`;
             document.getElementById('paymentContent').textContent = `${code}-${transactionId}`;
             
+            // Hiển thị modal thanh toán
             document.getElementById('paymentModal').style.display = 'flex';
         }
 
@@ -2069,11 +2584,199 @@
             
             // Confirm payment
             document.getElementById('confirmPayment').addEventListener('click', function() {
-                const serviceName = document.getElementById('paymentPackageName').textContent;
-                const amount = document.getElementById('paymentAmount').textContent;
+                const link = document.getElementById('videoLink').value;
                 
-                alert(`Cảm ơn bạn đã thanh toán ${amount} cho dịch vụ "${serviceName}"!\n\nVui lòng gửi xác nhận thanh toán và link bài viết/video đến email: vuducanh22082009@gmail.com\n\nDịch vụ sẽ được kích hoạt trong vòng 5-30 phút sau khi nhận được xác nhận.`);
+                if (!link) {
+                    alert('Vui lòng nhập link video/bài đăng');
+                    return;
+                }
+                
+                if (!selectedService) {
+                    alert('Không có thông tin dịch vụ');
+                    return;
+                }
+                
+                // Kiểm tra số dư
+                if (currentUser.balance < selectedService.price) {
+                    alert('Số dư không đủ. Vui lòng nạp thêm tiền.');
+                    document.getElementById('paymentModal').style.display = 'none';
+                    document.getElementById('depositModal').style.display = 'flex';
+                    return;
+                }
+                
+                // Trừ tiền
+                currentUser.balance -= selectedService.price;
+                saveUser(currentUser);
+                
+                // Tạo đơn hàng
+                const order = {
+                    username: currentUser.username,
+                    serviceCode: selectedService.code,
+                    serviceName: selectedService.name,
+                    link: link,
+                    amount: selectedService.price,
+                    status: 'processing',
+                    progress: 0,
+                    completed: 0,
+                    total: getTotalByService(selectedService),
+                    remainingTime: getRandomTime(1, 24), // 1-24 giờ
+                    startTime: new Date().toISOString()
+                };
+                
+                saveTransaction('order', order);
+                
+                // Cập nhật hiển thị
+                updateUserDisplay();
+                
+                alert(`Đã mua dịch vụ "${selectedService.name}" thành công!\n\nĐơn hàng đang được xử lý. Bạn có thể xem trạng thái trong phần Lịch sử.`);
                 document.getElementById('paymentModal').style.display = 'none';
+                
+                // Reset selectedService
+                selectedService = null;
+            });
+            
+            // Deposit button
+            document.getElementById('depositBtn').addEventListener('click', function() {
+                document.getElementById('depositModal').style.display = 'flex';
+                updateDepositDisplay(50000);
+            });
+            
+            // History button
+            document.getElementById('historyBtn').addEventListener('click', function() {
+                loadHistory();
+                document.getElementById('historyModal').style.display = 'flex';
+            });
+            
+            // Admin button
+            document.getElementById('adminBtn').addEventListener('click', function() {
+                loadAdminPanel();
+                document.getElementById('adminModal').style.display = 'flex';
+            });
+            
+            // Deposit slider
+            const depositSlider = document.getElementById('depositSlider');
+            depositSlider.addEventListener('input', function() {
+                updateDepositDisplay(parseInt(this.value));
+            });
+            
+            // Deposit packages
+            document.querySelectorAll('.deposit-package').forEach(pkg => {
+                pkg.addEventListener('click', function() {
+                    const amount = parseInt(this.dataset.amount);
+                    depositSlider.value = amount;
+                    updateDepositDisplay(amount);
+                    
+                    // Highlight selected package
+                    document.querySelectorAll('.deposit-package').forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Confirm deposit
+            document.getElementById('confirmDeposit').addEventListener('click', function() {
+                const amount = parseInt(depositSlider.value);
+                const bonus = calculateBonus(amount);
+                const total = amount + bonus;
+                
+                // Tạo giao dịch nạp tiền
+                const deposit = {
+                    username: currentUser.username,
+                    amount: amount,
+                    bonus: bonus,
+                    total: total,
+                    status: 'completed'
+                };
+                
+                saveTransaction('deposit', deposit);
+                
+                // Cập nhật số dư người dùng
+                currentUser.balance += total;
+                saveUser(currentUser);
+                
+                // Cập nhật hiển thị
+                updateUserDisplay();
+                
+                alert(`Nạp tiền thành công! Bạn đã nhận được ${formatMoney(total)} VNĐ (trong đó ${formatMoney(bonus)} VNĐ là khuyến mãi).`);
+                document.getElementById('depositModal').style.display = 'none';
+            });
+            
+            // Cancel deposit
+            document.getElementById('cancelDeposit').addEventListener('click', function() {
+                document.getElementById('depositModal').style.display = 'none';
+            });
+            
+            // Confirm admin
+            document.getElementById('confirmAdmin').addEventListener('click', function() {
+                const username = document.getElementById('adminSelectUser').value;
+                const amount = parseInt(document.getElementById('adminAmount').value);
+                const reason = document.getElementById('adminReason').value;
+                
+                if (!username || !amount || amount < 1000) {
+                    alert('Vui lòng chọn người dùng và nhập số tiền hợp lệ (ít nhất 1.000 VNĐ)');
+                    return;
+                }
+                
+                const user = getUser(username);
+                if (!user) {
+                    alert('Người dùng không tồn tại');
+                    return;
+                }
+                
+                // Cập nhật số dư
+                user.balance += amount;
+                saveUser(user);
+                
+                // Tạo giao dịch admin
+                const adminTransaction = {
+                    username: username,
+                    amount: amount,
+                    reason: reason || 'Admin thêm tiền',
+                    admin: currentUser.username,
+                    status: 'completed'
+                };
+                
+                saveTransaction('deposit', adminTransaction);
+                
+                alert(`Đã thêm ${formatMoney(amount)} VNĐ vào tài khoản ${username}`);
+                document.getElementById('adminModal').style.display = 'none';
+                
+                // Reset form
+                document.getElementById('adminAmount').value = '';
+                document.getElementById('adminReason').value = '';
+            });
+            
+            // Cancel admin
+            document.getElementById('cancelAdmin').addEventListener('click', function() {
+                document.getElementById('adminModal').style.display = 'none';
+            });
+            
+            // History tabs
+            document.querySelectorAll('[data-history]').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const historyType = this.dataset.history;
+                    
+                    // Xóa active class
+                    document.querySelectorAll('[data-history]').forEach(t => t.classList.remove('active'));
+                    // Ẩn tất cả nội dung
+                    document.getElementById('depositHistoryContent').style.display = 'none';
+                    document.getElementById('orderHistoryContent').style.display = 'none';
+                    document.getElementById('orderStatusContent').style.display = 'none';
+                    
+                    // Thêm active class
+                    this.classList.add('active');
+                    
+                    // Hiển thị nội dung tương ứng
+                    if (historyType === 'deposit') {
+                        document.getElementById('depositHistoryContent').style.display = 'block';
+                        loadDepositHistory();
+                    } else if (historyType === 'order') {
+                        document.getElementById('orderHistoryContent').style.display = 'block';
+                        loadOrderHistory();
+                    } else if (historyType === 'orderStatus') {
+                        document.getElementById('orderStatusContent').style.display = 'block';
+                        loadOrderStatus();
+                    }
+                });
             });
             
             // Close modal khi click bên ngoài
@@ -2116,23 +2819,28 @@
                 });
             });
             
-            // Demo login (tạm thời)
+            // Demo login
             document.getElementById('loginForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const username = document.getElementById('loginUsername').value;
+                const password = document.getElementById('loginPassword').value;
                 
                 if (!username.trim()) {
                     alert('Vui lòng nhập tên đăng nhập');
                     return;
                 }
                 
-                currentUser = {
-                    username: username
-                };
-                
-                updateUserDisplay();
-                document.getElementById('authModal').style.display = 'none';
-                alert('Đăng nhập thành công!');
+                // Kiểm tra người dùng
+                const user = getUser(username);
+                if (user && user.password === password) {
+                    currentUser = user;
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    updateUserDisplay();
+                    document.getElementById('authModal').style.display = 'none';
+                    alert('Đăng nhập thành công!');
+                } else {
+                    alert('Tên đăng nhập hoặc mật khẩu không đúng');
+                }
             });
             
             document.getElementById('registerForm').addEventListener('submit', function(e) {
@@ -2152,10 +2860,24 @@
                     return;
                 }
                 
+                // Kiểm tra người dùng đã tồn tại
+                if (getUser(username)) {
+                    alert('Tên đăng nhập đã tồn tại');
+                    return;
+                }
+                
+                // Tạo người dùng mới
                 currentUser = {
                     username: username,
-                    email: email
+                    email: email,
+                    password: password,
+                    balance: 0,
+                    role: email === ADMIN_EMAIL ? 'admin' : 'user',
+                    createdAt: new Date().toISOString()
                 };
+                
+                saveUser(currentUser);
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 
                 updateUserDisplay();
                 document.getElementById('authModal').style.display = 'none';
@@ -2166,6 +2888,7 @@
             document.getElementById('userAvatar').addEventListener('click', function() {
                 if (currentUser && confirm('Bạn có muốn đăng xuất không?')) {
                     currentUser = null;
+                    localStorage.removeItem('currentUser');
                     updateUserDisplay();
                 }
             });
@@ -2177,10 +2900,219 @@
                 document.getElementById('authButtons').style.display = 'none';
                 document.getElementById('loggedInUser').style.display = 'flex';
                 document.getElementById('avatarText').textContent = currentUser.username.charAt(0).toUpperCase();
+                document.getElementById('userBalance').textContent = formatMoney(currentUser.balance);
+                
+                // Hiển thị nút admin nếu là admin
+                if (currentUser.email === ADMIN_EMAIL) {
+                    document.getElementById('adminBtn').style.display = 'block';
+                } else {
+                    document.getElementById('adminBtn').style.display = 'none';
+                }
             } else {
                 document.getElementById('authButtons').style.display = 'flex';
                 document.getElementById('loggedInUser').style.display = 'none';
             }
+        }
+
+        // Cập nhật hiển thị nạp tiền
+        function updateDepositDisplay(amount) {
+            const bonus = calculateBonus(amount);
+            const total = amount + bonus;
+            
+            document.getElementById('depositSliderValue').textContent = formatMoney(amount) + ' VNĐ';
+            document.getElementById('depositAmount').textContent = formatMoney(amount);
+            document.getElementById('depositBonus').textContent = formatMoney(bonus);
+            document.getElementById('depositTotal').textContent = formatMoney(total);
+            
+            // Highlight package tương ứng
+            document.querySelectorAll('.deposit-package').forEach(pkg => {
+                pkg.classList.remove('active');
+                if (parseInt(pkg.dataset.amount) === amount) {
+                    pkg.classList.add('active');
+                }
+            });
+        }
+
+        // Tính khuyến mãi
+        function calculateBonus(amount) {
+            if (amount >= 500000) return 100000;
+            if (amount >= 200000) return 40000;
+            if (amount >= 100000) return 15000;
+            if (amount >= 50000) return 5000;
+            return 0;
+        }
+
+        // Tải lịch sử
+        function loadHistory() {
+            loadDepositHistory();
+        }
+
+        // Tải lịch sử nạp tiền
+        function loadDepositHistory() {
+            if (!currentUser) return;
+            
+            const transactions = getUserTransactions(currentUser.username);
+            const table = document.getElementById('depositHistoryTable');
+            table.innerHTML = '';
+            
+            if (transactions.deposits.length === 0) {
+                table.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 30px; color: var(--text-muted);">Chưa có giao dịch nạp tiền nào</td></tr>';
+                return;
+            }
+            
+            transactions.deposits.reverse().forEach(deposit => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${deposit.id}</td>
+                    <td>${formatMoney(deposit.amount)} VNĐ</td>
+                    <td>${formatMoney(deposit.bonus || 0)} VNĐ</td>
+                    <td>${formatMoney(deposit.total)} VNĐ</td>
+                    <td>${new Date(deposit.date).toLocaleString()}</td>
+                    <td><span class="status-badge status-completed">Hoàn thành</span></td>
+                `;
+                table.appendChild(row);
+            });
+        }
+
+        // Tải lịch sử đơn hàng
+        function loadOrderHistory() {
+            if (!currentUser) return;
+            
+            const transactions = getUserTransactions(currentUser.username);
+            const table = document.getElementById('orderHistoryTable');
+            table.innerHTML = '';
+            
+            if (transactions.orders.length === 0) {
+                table.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 30px; color: var(--text-muted);">Chưa có đơn hàng nào</td></tr>';
+                return;
+            }
+            
+            transactions.orders.reverse().forEach(order => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${order.id}</td>
+                    <td>${order.serviceName}</td>
+                    <td>${formatMoney(order.amount)} VNĐ</td>
+                    <td>${new Date(order.date).toLocaleString()}</td>
+                    <td><span class="status-badge ${order.status === 'completed' ? 'status-completed' : 'status-processing'}">${order.status === 'completed' ? 'Hoàn thành' : 'Đang xử lý'}</span></td>
+                `;
+                table.appendChild(row);
+            });
+        }
+
+        // Tải trạng thái đơn hàng
+        function loadOrderStatus() {
+            if (!currentUser) return;
+            
+            const transactions = getUserTransactions(currentUser.username);
+            const container = document.getElementById('orderStatusList');
+            container.innerHTML = '';
+            
+            const activeOrders = transactions.orders.filter(o => o.status === 'processing');
+            
+            if (activeOrders.length === 0) {
+                container.innerHTML = '<div style="text-align: center; padding: 30px; color: var(--text-muted);">Không có đơn hàng đang xử lý</div>';
+                return;
+            }
+            
+            activeOrders.reverse().forEach(order => {
+                const progress = Math.min(Math.floor((Date.now() - new Date(order.startTime).getTime()) / (order.remainingTime * 3600000) * 100), 100);
+                const completed = Math.floor(order.total * progress / 100);
+                const remainingHours = Math.max(0, order.remainingTime - (Date.now() - new Date(order.startTime).getTime()) / 3600000);
+                
+                const card = document.createElement('div');
+                card.className = 'order-status-card';
+                card.innerHTML = `
+                    <h3>${order.serviceName}</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 10px;">${order.link}</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>Tiến độ: ${progress}%</span>
+                            <span>${completed}/${order.total}</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${progress}%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Đã tăng</div>
+                            <div class="detail-value">${formatMoney(completed)}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Tổng cần tăng</div>
+                            <div class="detail-value">${formatMoney(order.total)}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Thời gian còn lại</div>
+                            <div class="detail-value time-remaining">${Math.ceil(remainingHours)} giờ</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Trạng thái</div>
+                            <div class="detail-value"><span class="status-badge status-processing">Đang xử lý</span></div>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Tải panel admin
+        function loadAdminPanel() {
+            if (currentUser.email !== ADMIN_EMAIL) return;
+            
+            const users = JSON.parse(localStorage.getItem('users'));
+            const select = document.getElementById('adminSelectUser');
+            const userList = document.getElementById('adminUserList');
+            
+            // Clear
+            select.innerHTML = '<option value="">-- Chọn người dùng --</option>';
+            userList.innerHTML = '';
+            
+            // Add users to select
+            for (const username in users) {
+                if (users[username].email !== ADMIN_EMAIL) {
+                    const option = document.createElement('option');
+                    option.value = username;
+                    option.textContent = `${username} (${users[username].email}) - ${formatMoney(users[username].balance)} VNĐ`;
+                    select.appendChild(option);
+                }
+            }
+            
+            // Add users to list
+            for (const username in users) {
+                if (users[username].email !== ADMIN_EMAIL) {
+                    const userDiv = document.createElement('div');
+                    userDiv.style.padding = '10px';
+                    userDiv.style.borderBottom = '1px solid rgba(138, 43, 226, 0.2)';
+                    userDiv.innerHTML = `
+                        <strong>${username}</strong> (${users[username].email})<br>
+                        Số dư: <strong style="color: var(--accent-color-2);">${formatMoney(users[username].balance)} VNĐ</strong><br>
+                        Đăng ký: ${new Date(users[username].createdAt).toLocaleDateString()}
+                    `;
+                    userList.appendChild(userDiv);
+                }
+            }
+        }
+
+        // Lấy tổng số view/follower theo dịch vụ
+        function getTotalByService(service) {
+            // Dựa vào mã dịch vụ để xác định tổng số
+            if (service.code.includes('COBAN')) return 1000;
+            if (service.code.includes('CHUYENNGHIEP')) return 5000;
+            if (service.code.includes('CAOCAP')) return 20000;
+            if (service.code.includes('VIP')) return 50000;
+            
+            // Mặc định
+            return 1000;
+        }
+
+        // Lấy thời gian ngẫu nhiên
+        function getRandomTime(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
     </script>
 </body>
